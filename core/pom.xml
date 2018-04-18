@@ -792,7 +792,6 @@ THE SOFTWARE.
         <configuration>
           <forkCount>0.5C</forkCount>
           <reuseForks>true</reuseForks>
-          <argLine>-noverify</argLine> <!-- some versions of JDK7/8 causes VerifyError during mock tests: http://code.google.com/p/powermock/issues/detail?id=504 -->
         </configuration>
       </plugin>
       <plugin><!-- set main class -->
@@ -881,6 +880,17 @@ THE SOFTWARE.
         <!-- In the default profile we always fail the build if there FindBugs errors -->
         <findbugs.failOnError>true</findbugs.failOnError>
       </properties>
+    </profile>
+    <profile>
+      <id>jacoco</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 </project>
